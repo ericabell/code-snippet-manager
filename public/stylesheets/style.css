@@ -1,3 +1,8 @@
+.header {
+  width: 100%;
+  text-align: center;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +10,18 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+.code-snip-app {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+}
+
+.sidebar-content {
+  flex-basis: 20%;
+}
+
+.main-content {
+  flex-basis: 70%;
 }

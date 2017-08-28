@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<% include ./partials/head %>
+<% include ./partials/header %>
+<% include ./partials/navbar %>
+
+<div class='code-snip-app'>
+
+  <div class='sidebar-content'>
+    Side bar
+  </div>
+
+  <div class='main-content'>
+    Main content
+  </div>
+
+</div>
+
+<% include ./partials/footer %>
+<% include ./partials/foot %>
