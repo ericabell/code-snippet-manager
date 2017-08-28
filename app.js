@@ -9,7 +9,12 @@ const express = require('express'),
 // app-level connect to snippet database
 // used for robot directory info and auth for passport
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/code-snippet-manager-project', {useMongoClient: true});
+mongoose.connect('mongodb://localhost:27017/code-snippet-manager-project',
+                 {useMongoClient: true},
+                 (err)=> {
+                   if(err) throw err;
+                   else {console.log('connection to db successful');}
+                 });
 
 // ROUTES
 var index = require('./routes/index');
