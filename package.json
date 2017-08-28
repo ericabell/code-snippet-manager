@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "~1.17.1",
     "codemirror": "^5.29.0",
     "connect-mongodb-session": "^1.3.0",
