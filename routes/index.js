@@ -64,7 +64,10 @@ console.log('a*b is: ' + a*b);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Code Snip Manager', editors: snippets.length, snippets: snippets });
+  res.render('index', { title: 'Code Snip Manager',
+                        editors: snippets.length,
+                        snippets: snippets
+                      });
 });
 
 module.exports = router;
