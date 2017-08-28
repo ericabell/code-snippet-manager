@@ -18,4 +18,14 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/snip/create', function(req,res,next) {
+  res.render('create', { title: 'Code Snip Manager'});
+});
+
+router.post('/snip/create', function(req, res, next) {
+  // TODO: grab info from form submission and create a new
+  //       snippet
+  res.send('snippet created!');
+});
+
 module.exports = router;
