@@ -1,9 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express'),
+      path = require('path'),
+      favicon = require('serve-favicon'),
+      logger = require('morgan'),
+      cookieParser = require('cookie-parser'),
+      bodyParser = require('body-parser');
+
+
+// app-level connect to snippet database
+// used for robot directory info and auth for passport
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/code-snippet-manager-project', {useMongoClient: true});
 
 // ROUTES
 var index = require('./routes/index');

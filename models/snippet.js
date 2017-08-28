@@ -3,7 +3,7 @@ ObjectId = require('mongodb').ObjectID;
 
 mongoose.Promise = require('bluebird');
 
-const snipSchema = new mongoose.Schema({
+const snippetSchema = new mongoose.Schema({
   title: String,
   code: String,
   owner: String,
@@ -13,8 +13,8 @@ const snipSchema = new mongoose.Schema({
   stars: [],
   created: Date,
   modified: Date
-});
+}, {collection: 'snippets'});
 
-const Snip = mongoose.model('Snip', snipSchema);
+const Snippet = mongoose.model('Snip', snippetSchema);
 
-module.exports = Snip;
+module.exports = Snippet;
