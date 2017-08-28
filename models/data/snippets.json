@@ -1,0 +1,24 @@
+{
+    "id": "11111111",
+    "title": "Code Snippet 1",
+    "code": "def doesNothing():\npass\n\nclass ExampleClass(ParentClass):\n@staticmethod\ndef example(inputStr):\na = list(inputStr)\na.reverse()\nreturn ''.join(a)\n\ndef __init__(self, mixin = 'Hello'):\nself.mixin = mixin\n",
+    "language": "python",
+},
+{
+    "id": "22222222",
+    "title": "Code Snippet 2",
+    "code": "def doesNothing():\npass\n\nclass ExampleClass(ParentClass):\n@staticmethod\ndef example(inputStr):\na = list(inputStr)\na.reverse()\nreturn ''.join(a)\n\ndef __init__(self, mixin = 'Hello'):\nself.mixin = mixin\n",
+    "language": "python",
+},
+{
+    "id": "33333333",
+    "title": "Code Snippet 3",
+    "code": "def doesNothing():\npass\n\nclass ExampleClass(ParentClass):\n@staticmethod\ndef example(inputStr):\na = list(inputStr)\na.reverse()\nreturn ''.join(a)\n\ndef __init__(self, mixin = 'Hello'):\nself.mixin = mixin\n",
+    "language": "python",
+},
+{
+    "id": "44444444",
+    "title": "Code Snippet 4",
+    "code": "def doesNothing():\npass\n\nclass ExampleClass(ParentClass):\n@staticmethod\ndef example(inputStr):\na = list(inputStr)\na.reverse()\nreturn ''.join(a)\n\ndef __init__(self, mixin = 'Hello'):\nself.mixin = mixin\n",
+    "language": "python",
+},
