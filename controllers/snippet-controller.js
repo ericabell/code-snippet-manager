@@ -17,7 +17,12 @@ function getAllSnippets() {
   return p;
 }
 
-function createNewSnippet(newTitle, newLanguage, newCode, newOwner, newTags, newNotes) {
+function createNewSnippet(newTitle,
+                          newLanguage,
+                          newCode,
+                          newOwner,
+                          newTags,
+                          newNotes) {
   let p = new Promise( (resolve, reject) => {
 
     Snippet.create({title: newTitle,
