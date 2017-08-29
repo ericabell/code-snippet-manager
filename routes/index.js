@@ -3,21 +3,16 @@ var router = express.Router();
 
 let Snippet = require('../models/snippet.js');
 
+let SnippetController = require('../controllers/snippet-controller')
+
 /* MAIN PAGE - VIEW ALL SNIPPETS */
 router.get('/', function(req, res, next) {
-  if(req.user) {
-    console.log(req.user);
-  }
-  Snippet.find({})
-    .then( (snippets) => {
-      res.render('index', { title: 'Code Snip Manager',
-                            editors: snippets.length,
-                            snippets: snippets,
-                            user: extractName(req)
-                          });
+  SnippetController.getAll(req)
+    .then( (data) => {
+      res.render('index', data)
     })
     .catch( (err) => {
-      console.log(err);
+      res.render(err);
     })
 });
 
@@ -46,21 +41,6 @@ router.post('/snip/create', function(req, res, next) {
       })
 });
 
-// HELPER FUNCTIONS
-// extractName checks to see if current user is authenticated,
-// if they are, return their name. If not, return Anonymous user
-let extractName = function(req) {
-  if( req.user ) {
-    return req.user.name;
-  }
-  return 'Anonymous User';
-}
 
-let extractUsername = function(req) {
-  if( req.user ) {
-    return req.user.username;
-  }
-  return 'anonymous';
-}
 
 module.exports = router;
