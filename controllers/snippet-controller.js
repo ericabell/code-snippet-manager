@@ -35,7 +35,7 @@ function getByLanguage(language) {
 
 function getByTag(tag) {
   let p = new Promise( (resolve, reject) => {
-    Snippet.find({tags: {$in: tag}})
+    Snippet.find({tags: {$in: [tag]}})
       .then( (snippets) => {
         resolve ({
           snippets: snippets

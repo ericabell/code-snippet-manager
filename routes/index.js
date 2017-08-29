@@ -35,6 +35,20 @@ router.get('/snip/language/:language', function(req, res, next) {
     })
 });
 
+router.get('/snip/tag/:tag', function(req, res, next) {
+  let searchTag = req.params.tag;
+  SnippetController.getByTag(searchTag)
+    .then( (data) => {
+      res.render('index', {
+        snippets: data,
+        title: 'Code Snip Manager',
+        user: extractName(req)
+      })
+    })
+    .catch( (err) => {
+      res.render(err);
+    })
+});
 
 router.get('/snip/create', function(req,res,next) {
   res.render('create', { title: 'Code Snip Manager',
