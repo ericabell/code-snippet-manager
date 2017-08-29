@@ -30,7 +30,8 @@ function createNewSnippet(newTitle,
                     code: newCode,
                     owner: newOwner,
                     tags: newTags,
-                    notes: [newNotes]
+                    notes: [newNotes],
+                    created: Date()
                   })
         .then( (doc) => {
           resolve(doc);

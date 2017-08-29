@@ -29,3 +29,8 @@ a {
 textarea {
   margin: 0;
 }
+
+.small-italics {
+  font-size: 8pt;
+  font-style: italic;
+}

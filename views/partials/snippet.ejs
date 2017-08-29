@@ -8,10 +8,20 @@
           <% } else { %>
             Anonymous User
           <% } %>
+        </p>
+        <p>
+          <span class='small-italics'>Created: <%= snippets.snippets[i].created %></span>
+        </p>
+
+        <% if( snippets.snippets[i].modified ) { %>
+          <p>
+            <span class='small-italics'>Modified: <%= snippets.snippets[i].modified %></span>
           </p>
+        <% } %>
+
         <p>
           <% if(snippets.snippets[i].tags) { %>
-              <%= snippets.snippets[i].tags %>
+              <span class='small-italics'>Tags: <%= snippets.snippets[i].tags %></span>
             <% } %>
         </p>
       </div>
