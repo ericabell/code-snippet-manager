@@ -1,19 +1,29 @@
 let request = require('supertest');
-let test = require('tape');
 
 let app = require('../app');
 
-
-test('First test!', function(t) {
-  t.end();
-});
-
-test('Main page request', function(t) {
-  request(app)
-    .get('/')
-    .expect(200)
-    .end( function(err,res) {
-      t.error( err, 'No error');
-      t.end();
+describe('Test GET requests to pages', () => {
+    test("/", function() {
+      return request(app)
+        .get('/')
+        .expect(200)
     });
-});
+
+    test("/login", function() {
+      return request(app)
+        .get('/login')
+        .expect(200)
+    });
+
+    test("/register", function() {
+      return request(app)
+        .get('/register')
+        .expect(200)
+    });
+
+    test("/snip/create", function() {
+      return request(app)
+        .get('/')
+        .expect(200)
+    })
+})
