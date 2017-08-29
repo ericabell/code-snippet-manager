@@ -33,7 +33,8 @@ router.post('/snip/create', function(req, res, next) {
                               req.body.language,
                               req.body.code,
                               extractName(req),
-                              req.body.tags)
+                              req.body.tags,
+                              req.body.notes)
     .then( () => {
       res.redirect('/');
     })
