@@ -9,6 +9,11 @@
             Anonymous User
           <% } %>
           </p>
+        <p>
+          <% if(snippets.snippets[i].tags) { %>
+              <%= snippets.snippets[i].tags %>
+            <% } %>
+        </p>
       </div>
       <div class="card-body">
         <div class='editor'>

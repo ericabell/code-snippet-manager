@@ -28,6 +28,7 @@ router.get('/snip/create', function(req,res,next) {
 });
 
 router.post('/snip/create', function(req, res, next) {
+  console.log(req.body);
   SnippetController.createNew(req)
     .then( () => {
       res.redirect('/');

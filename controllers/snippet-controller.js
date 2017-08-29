@@ -23,11 +23,13 @@ function createNewSnippet(req) {
     let newTitle = req.body.title;
     let newLanguage = req.body.language;
     let newCode = req.body.code;
+    let newTags = req.body.tags;
 
     Snippet.create({title: newTitle,
                     language: newLanguage,
                     code: newCode,
-                    owner: Utilities.getUsernameFromReq(req)
+                    owner: Utilities.getUsernameFromReq(req),
+                    tags: newTags
                   })
         .then( (doc) => {
           resolve(doc);

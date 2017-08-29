@@ -30,7 +30,6 @@
   "jest": {
     "testEnvironment": "node",
     "verbose": true,
-    "collectCoverage": true,
-    "coverageFormats": ["json", "html"]
+    "collectCoverage": true
   }
 }
