@@ -1,0 +1,21 @@
+<% include ./partials/head %>
+<% include ./partials/header %>
+<% include ./partials/navbar %>
+
+<div class='code-snip-app'>
+
+  <div class='sidebar-content'>
+    <% include ./partials/sidebar %>
+  </div>
+
+  <div class='main-content'>
+      <% tagList.forEach( function(tag) { %>
+        <p> <%= tag %> </p>
+      <% } %>
+
+  </div>
+
+</div>
+
+<% include ./partials/footer %>
+<% include ./partials/foot %>
