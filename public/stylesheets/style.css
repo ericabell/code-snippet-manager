@@ -25,3 +25,7 @@ a {
 .main-content {
   flex-basis: 70%;
 }
+
+textarea {
+  margin: 0;
+}

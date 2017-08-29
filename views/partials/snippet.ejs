@@ -1,16 +1,20 @@
 <% for(let i=0; i<editors; i++) { %>
-  <form action='/<%= snippets[i].id %>' method='POST'>
-  <h1><%= snippets[i].title %></h1>
-  <p><% if(snippets[i].owner) { %>
-      <%= snippets[i].owner %>
-    <% } else { %>
-      Anonymous User
-    <% } %>
-    </p>
-  <div class='editor'>
-    <textarea name='code' class='<%= snippets[i].language %> snippet' id="<%= snippets[i].id %>" rows="8" cols="40"><%= snippets[i].code %></textarea>
+  <div class="card">
+    <form action='/<%= snippets[i].id %>' method='POST'>
+      <div class="card-header">
+        <h6><%= snippets[i].title %></h6>
+        <p><% if(snippets[i].owner) { %>
+            <%= snippets[i].owner %>
+          <% } else { %>
+            Anonymous User
+          <% } %>
+          </p>
+      </div>
+      <div class="card-body">
+        <div class='editor'>
+          <textarea name='code' class='<%= snippets[i].language %> snippet' id="<%= snippets[i].id %>" rows="8" cols="40"><%= snippets[i].code %></textarea>
+        </div>
+      </div>
+    </form>
   </div>
-
-    <input type="submit" value="Submit"></input>
-  </form>
 <% } %>
