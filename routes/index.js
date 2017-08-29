@@ -4,7 +4,6 @@ var router = express.Router();
 let Snippet = require('../models/snippet.js');
 
 let SnippetController = require('../controllers/snippet-controller');
-let Utilities = require('../controllers/utilities');
 
 /* MAIN PAGE - VIEW ALL SNIPPETS */
 router.get('/', function(req, res, next) {
@@ -13,7 +12,7 @@ router.get('/', function(req, res, next) {
       res.render('index', {
         snippets: data,
         title: 'Code Snip Manager',
-        user: Utilities.getNameFromReq(req)
+        user: extractName(req)
       })
     })
     .catch( (err) => {
@@ -23,13 +22,18 @@ router.get('/', function(req, res, next) {
 
 router.get('/snip/create', function(req,res,next) {
   res.render('create', { title: 'Code Snip Manager',
-                         user: Utilities.getNameFromReq(req)
+                         user: extractName(req)
                           });
 });
 
 router.post('/snip/create', function(req, res, next) {
   console.log(req.body);
-  SnippetController.createNew(req)
+
+  SnippetController.createNew(req.body.title,
+                              req.body.language,
+                              req.body.code,
+                              extractName(req),
+                              req.body.tags)
     .then( () => {
       res.redirect('/');
     })
@@ -38,6 +42,21 @@ router.post('/snip/create', function(req, res, next) {
     })
 });
 
+// HELPER FUNCTIONS
+// extractName checks to see if current user is authenticated,
+// if they are, return their name. If not, return Anonymous user
+function extractName (req) {
+  if( req.user ) {
+    return req.user.name;
+  }
+  return 'Anonymous User';
+}
 
+function extractUsername(req) {
+  if( req.user ) {
+    return req.user.username;
+  }
+  return 'anonymous';
+}
 
 module.exports = router;

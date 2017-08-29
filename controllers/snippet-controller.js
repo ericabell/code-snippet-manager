@@ -6,8 +6,7 @@ function getAllSnippets() {
     Snippet.find({})
       .then( (snippets) => {
         resolve ({
-          editors: snippets.length,
-          snippets: snippets,
+          snippets: snippets
         });
       })
       .catch( (err) => {
@@ -18,17 +17,13 @@ function getAllSnippets() {
   return p;
 }
 
-function createNewSnippet(req) {
+function createNewSnippet(newTitle, newLanguage, newCode, newOwner, newTags) {
   let p = new Promise( (resolve, reject) => {
-    let newTitle = req.body.title;
-    let newLanguage = req.body.language;
-    let newCode = req.body.code;
-    let newTags = req.body.tags;
 
     Snippet.create({title: newTitle,
                     language: newLanguage,
                     code: newCode,
-                    owner: Utilities.getUsernameFromReq(req),
+                    owner: newOwner,
                     tags: newTags
                   })
         .then( (doc) => {
