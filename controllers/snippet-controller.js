@@ -17,6 +17,38 @@ function getAllSnippets() {
   return p;
 }
 
+function getByLanguage(language) {
+  let p = new Promise( (resolve, reject) => {
+    Snippet.find({language: language})
+      .then( (snippets) => {
+        resolve ({
+          snippets: snippets
+        });
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
+function getByTag(tag) {
+  let p = new Promise( (resolve, reject) => {
+    Snippet.find({tags: {$in: tag}})
+      .then( (snippets) => {
+        resolve ({
+          snippets: snippets
+        });
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
 function createNewSnippet(newTitle,
                           newLanguage,
                           newCode,
@@ -47,6 +79,8 @@ function createNewSnippet(newTitle,
 let SnippetController = {
   getAll: getAllSnippets,
   createNew: createNewSnippet,
+  getByTag: getByTag,
+  getByLanguage: getByLanguage
 }
 
 module.exports = SnippetController;
