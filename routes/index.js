@@ -3,13 +3,18 @@ var router = express.Router();
 
 let Snippet = require('../models/snippet.js');
 
-let SnippetController = require('../controllers/snippet-controller')
+let SnippetController = require('../controllers/snippet-controller');
+let Utilities = require('../controllers/utilities');
 
 /* MAIN PAGE - VIEW ALL SNIPPETS */
 router.get('/', function(req, res, next) {
-  SnippetController.getAll(req)
+  SnippetController.getAll()
     .then( (data) => {
-      res.render('index', data)
+      res.render('index', {
+        snippets: data,
+        title: 'Code Snip Manager',
+        user: Utilities.getNameFromReq(req)
+      })
     })
     .catch( (err) => {
       res.render(err);
@@ -18,27 +23,18 @@ router.get('/', function(req, res, next) {
 
 router.get('/snip/create', function(req,res,next) {
   res.render('create', { title: 'Code Snip Manager',
-                         user: extractName(req)
+                         user: Utilities.getNameFromReq(req)
                           });
 });
 
 router.post('/snip/create', function(req, res, next) {
-  let newTitle = req.body.title;
-  let newLanguage = req.body.language;
-  let newCode = req.body.code;
-
-  Snippet.create({title: newTitle,
-                  language: newLanguage,
-                  code: newCode,
-                  owner: extractUsername(req)
-                })
-      .then( (doc) => {
-        console.log(`snippet added: ${doc}`);
-        res.redirect('/');
-      })
-      .catch( (err) => {
-        res.send(`Error creating snippet: ${err}`);
-      })
+  SnippetController.createNew(req)
+    .then( () => {
+      res.redirect('/');
+    })
+    .catch( (err) => {
+      res.send(`Error creating snippet: ${err}`);
+    })
 });
 
 

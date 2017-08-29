@@ -1,14 +1,13 @@
 let Snippet = require('../models/snippet');
+let Utilities = require('./utilities');
 
-function getAllSnippets(req) {
+function getAllSnippets() {
   let p = new Promise( (resolve, reject) => {
     Snippet.find({})
       .then( (snippets) => {
         resolve ({
-          title: 'Code Snip Manager',
           editors: snippets.length,
           snippets: snippets,
-          user: extractName(req)
         });
       })
       .catch( (err) => {
@@ -19,24 +18,31 @@ function getAllSnippets(req) {
   return p;
 }
 
+function createNewSnippet(req) {
+  let p = new Promise( (resolve, reject) => {
+    let newTitle = req.body.title;
+    let newLanguage = req.body.language;
+    let newCode = req.body.code;
 
-// HELPER FUNCTIONS
-// extractName checks to see if current user is authenticated,
-// if they are, return their name. If not, return Anonymous user
-function extractName (req) {
-  if( req.user ) {
-    return req.user.name;
-  }
-  return 'Anonymous User';
+    Snippet.create({title: newTitle,
+                    language: newLanguage,
+                    code: newCode,
+                    owner: Utilities.getUsernameFromReq(req)
+                  })
+        .then( (doc) => {
+          resolve(doc);
+        })
+        .catch( (err) => {
+          reject(err);
+        })
+  })
+
+  return p;
 }
 
-function extractUsername(req) {
-  if( req.user ) {
-    return req.user.username;
-  }
-  return 'anonymous';
+let SnippetController = {
+  getAll: getAllSnippets,
+  createNew: createNewSnippet,
 }
-
-let SnippetController = {getAll: getAllSnippets}
 
 module.exports = SnippetController;
