@@ -49,6 +49,22 @@ function getByTag(tag) {
   return p;
 }
 
+function getByUser(user) {
+  let p = new Promise( (resolve, reject) => {
+    Snippet.find({owner: user})
+      .then( (snippets) => {
+        resolve( {
+          snippets: snippets
+        });
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
 function createNewSnippet(newTitle,
                           newLanguage,
                           newCode,
@@ -80,7 +96,8 @@ let SnippetController = {
   getAll: getAllSnippets,
   createNew: createNewSnippet,
   getByTag: getByTag,
-  getByLanguage: getByLanguage
+  getByLanguage: getByLanguage,
+  getByUser: getByUser
 }
 
 module.exports = SnippetController;

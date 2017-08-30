@@ -2,7 +2,7 @@
 	"title": "XML snippet",
 	"language": "xml",
 	"code": "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" media=\"screen\" href=\"style.css\">\n  <title>JS</title>\n  <script type=\"text/javascript\"> </script>\n  <script src=\"http://code.jquery.com/jquery-latest.js\"></script>\n<style>\n\u200b   nav {\n     display:none;\n    }\n    .static {\n     display:block;\n    }\n</style>\n<script>\n  $(document).ready(function(){\n  \u200b  $(\".rightsquare\").click(function(){\n            console.log(\"you clicked on Braun-T31\");\n            $(\"nav\").addClass(\"static\");\n          });\n          $(\"li:Station1\").click(function(){\n            console.log(\"you clicked on the first list item!\");\n            alert(\"yay!\");\n          });\n          $(\"li:Station2\").click(function(){\n            console.log(\"you clicked on the last list item!\");\n          });\n  \u200b         $(\"span\").click(function(){\n            console.log(\"you clicked on the close button!\");\n            $(\"nav\").removeClass(\"static\");\n          });\n        });\n  </script>\n  <title> am i dieter rams ? </title>\n</head>\n<body>\n<div id=\"background\"> </div>\n<div class=\"sidebar\">\n  <div class=\"topfiller\"> </div>\n  <div class=\"title\">\n    <h1> am i dieter rams ? </h1>\n  </div>\n  <div class=\"bottomfiller\"> </div>\n</div>\n\n<div class=\"rightsquare\" id=\"grid\">\n<nav>\n    <h4> Braun-T31 </h4>\n    <img src=\"Braun.jpg\" id=\"Braun-T31\" style=\"width:300px;\"> </img>\n      <div class=\"static\" id=\"static\"></div>\n    <ul class=\"stations\"\n      <li class=\"Station1\"> </li>\n      <li class=\"Station2\"></li>\n      <li class=\"Station3\"></li>\n    </ul>\n  </nav>\n  <span> close nav </span>\n  </div>\n\n</div>\n\n</body>\n</html>\n",
-	"owner": "Anonymous User",
+	"owner": "anonymous",
 	"created": {
 		"$date": "2017-08-29T21:51:03.000Z"
 	},
@@ -18,7 +18,7 @@
 	"title": "Javascript Snippet",
 	"language": "javascript",
 	"code": "Function.prototype.method = function(name, func) {\n    if(!this.prototype[name]) {\n        this.prototype[name] = func;\n    }\n    return this;\n};\n\nNumber.method('integer', function() {\n   return Math[this < 0 ? 'ceil' : 'floor'](this);\n});\n\ndocument.writeln((-10/3).integer());\n",
-	"owner": "Bob Jenkins",
+	"owner": "bjenkins",
 	"created": {
 		"$date": "2017-08-29T21:52:33.000Z"
 	},
