@@ -1,10 +1,16 @@
 .header {
+  margin: 0;
+  padding-top: 20px;
   width: 100%;
   text-align: center;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  position: fixed;
+  z-index: 10;
+  background-color: rgb(227, 209, 245);
 }
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -20,10 +26,14 @@ a {
 
 .sidebar-content {
   flex-basis: 20%;
+  margin-top: 125px;
+  z-index: 5;
 }
 
 .main-content {
   flex-basis: 70%;
+  margin-top: 125px;
+  z-index: 5;
 }
 
 .card-snippet {

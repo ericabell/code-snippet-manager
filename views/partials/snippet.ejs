@@ -2,11 +2,11 @@
   <div class="card card-snippet">
     <form action='/<%= snippets.snippets[i].id %>' method='POST'>
       <div class="card-header">
-        <div class="row">
+        <div class="row align-items-center">
           <div class="col-8">
             <span class='snippet-title'><%= snippets.snippets[i].title %></span>
           </div>
-          <div class="col-4">
+          <div class="col-4 flush-right">
             <span class='snippet-owner'><% if(snippets.snippets[i].owner) { %>
                 <%= snippets.snippets[i].owner %>
               <% } else { %>
@@ -32,7 +32,7 @@
             <% } %>
         </p>
       </div>
-      
+
       <div class="card-body">
         <div class='editor'>
           <textarea name='code' class='<%= snippets.snippets[i].language %> snippet' id="<%= snippets.snippets[i].id %>" rows="8" cols="40"><%= snippets.snippets[i].code %></textarea>
