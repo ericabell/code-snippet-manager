@@ -1,6 +1,8 @@
 let Snippet = require('../models/snippet');
 let Utilities = require('./utilities');
 
+let ObjectId = require('mongodb').ObjectId
+
 function getAllSnippets() {
   let p = new Promise( (resolve, reject) => {
     Snippet.find({})
@@ -65,6 +67,22 @@ function getByUser(user) {
   return p;
 }
 
+function getById(id) {
+  let p = new Promise( (resolve, reject) => {
+    Snippet.find({_id: ObjectId(id)})
+      .then( (snippets) => {
+        resolve( {
+          snippets: snippets
+        });
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
 function createNewSnippet(newTitle,
                           newLanguage,
                           newCode,
@@ -97,7 +115,8 @@ let SnippetController = {
   createNew: createNewSnippet,
   getByTag: getByTag,
   getByLanguage: getByLanguage,
-  getByUser: getByUser
+  getByUser: getByUser,
+  getById: getById
 }
 
 module.exports = SnippetController;

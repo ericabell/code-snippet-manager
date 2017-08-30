@@ -104,4 +104,22 @@ router.post('/snip/create', function(req, res, next) {
     })
 });
 
+router.get('/snip/view/:id', function(req,res,next) {
+  let searchId = req.params.id;
+
+  SnippetController.getById(searchId)
+    .then( (data) => {
+      console.log(data);
+      res.render('index', {
+        snippets: data,
+        title: 'Code Snip Manager',
+        user: Utilities.extractName(req),
+        username: Utilities.extractUsername(req)
+      })
+    })
+    .catch( (err) => {
+      res.render(err);
+    })
+})
+
 module.exports = router;

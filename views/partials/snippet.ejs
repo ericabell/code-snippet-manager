@@ -4,7 +4,7 @@
       <div class="card-header">
         <div class="row align-items-center">
           <div class="col-8">
-            <span class='snippet-title'><%= snippets.snippets[i].title %></span>
+            <span class='snippet-title'><a href="/snip/view/<%= snippets.snippets[i]['_id'] %>"><%= snippets.snippets[i].title %></a></span>
           </div>
           <div class="col-4 flush-right">
             <span class='snippet-owner'><% if(snippets.snippets[i].owner) { %>
@@ -31,6 +31,11 @@
               <span class='small-italics'>Tags: <%= snippets.snippets[i].tags %></span>
             <% } %>
         </p>
+
+        <% if( snippets.snippets[i].owner === username ) { %>
+          <a href="/snip/edit/<%= snippets.snippets[i]['_id'] %>"><button type="button" class="btn btn-primary btn-sm">Edit Snip</button></a>
+          <a href="/snip/delete/<%= snippets.snippets[i]['_id'] %>"><button type="button" class="btn btn-primary btn-sm">Delete Snip</button></a>
+        <% } %>
       </div>
 
       <div class="card-body">
