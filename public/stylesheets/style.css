@@ -5,7 +5,7 @@
   text-align: center;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  position: fixed;
+  /*position: fixed;*/
   z-index: 10;
   background-color: rgb(227, 209, 245);
 }
@@ -26,13 +26,11 @@ a {
 
 .sidebar-content {
   flex-basis: 20%;
-  margin-top: 125px;
   z-index: 5;
 }
 
 .main-content {
   flex-basis: 70%;
-  margin-top: 125px;
   z-index: 5;
 }
 

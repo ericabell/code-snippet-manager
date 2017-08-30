@@ -6,10 +6,14 @@ let router = express.Router();
 let Snippet = require('../models/snippet.js');
 let User = require('../models/auth.js');
 
+let Utilities = require('./utilities');
+
 
 // USER AUTH ROUTES FOR LOGIN AND REGISTER
 router.get('/login', (req, res) => {
-  res.render('login', {title: 'Code Snip Manager'})
+  res.render('login', {title: 'Code Snip Manager',
+                       user: Utilities.extractName(req)
+                     })
 });
 
 const checkPost = function(req, res, next) {
