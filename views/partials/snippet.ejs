@@ -1,30 +1,38 @@
 <% for(let i=0; i<snippets.snippets.length; i++) { %>
-  <div class="card">
+  <div class="card card-snippet">
     <form action='/<%= snippets.snippets[i].id %>' method='POST'>
       <div class="card-header">
-        <h6><%= snippets.snippets[i].title %></h6>
-        <p><% if(snippets.snippets[i].owner) { %>
-            <%= snippets.snippets[i].owner %>
-          <% } else { %>
-            Anonymous User
-          <% } %>
-        </p>
-        <p>
+        <div class="row">
+          <div class="col-8">
+            <span class='snippet-title'><%= snippets.snippets[i].title %></span>
+          </div>
+          <div class="col-4">
+            <span class='snippet-owner'><% if(snippets.snippets[i].owner) { %>
+                <%= snippets.snippets[i].owner %>
+              <% } else { %>
+                Anonymous User
+              <% } %>
+            </span>
+          </div>
+        </div>
+
+        <p class='flush-right snippet-created'>
           <span class='small-italics'>Created: <%= snippets.snippets[i].created %></span>
         </p>
 
         <% if( snippets.snippets[i].modified ) { %>
-          <p>
+          <p class='snippet-modified flush-right'>
             <span class='small-italics'>Modified: <%= snippets.snippets[i].modified %></span>
           </p>
         <% } %>
 
-        <p>
+        <p class='snippet-tags flush-right'>
           <% if(snippets.snippets[i].tags) { %>
               <span class='small-italics'>Tags: <%= snippets.snippets[i].tags %></span>
             <% } %>
         </p>
       </div>
+      
       <div class="card-body">
         <div class='editor'>
           <textarea name='code' class='<%= snippets.snippets[i].language %> snippet' id="<%= snippets.snippets[i].id %>" rows="8" cols="40"><%= snippets.snippets[i].code %></textarea>

@@ -26,6 +26,34 @@ a {
   flex-basis: 70%;
 }
 
+.card-snippet {
+  margin: 10px;
+}
+
+.snippet-title {
+  font-size: 20pt;
+}
+
+.snippet-created {
+  margin: 5px 0;
+}
+
+.snippet-modified {
+
+}
+
+.snippet-tags {
+
+}
+
+.flush-right {
+  text-align: right;
+}
+
+.card-body {
+  padding: 0;
+}
+
 textarea {
   margin: 0;
 }

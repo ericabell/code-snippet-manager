@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+
+hrs = input("Enter Hours:")
+rate = input("Enter Rate:")
+#Computing Overtime
+if float(hrs) > 40:
+  hrs_difference = float(hrs) - 40
+  #print(hrs_difference)
+  overtime_pay = float(hrs_difference *(rate * 1.5))
+  print(overtime_pay)
+  #total = str((float(hrs) * float(rate) + overtime_pay))
+  #print('Pay: ' , total)
+else:
+  total = str(float(hrs) * float(rate))
+  print("Pay: " ,total)
+
+Error Message
+File "./total_hours.py", line 9, in <module>
+    overtime_pay = float(hrs_difference *(rate * 1.5))
+TypeError: can't multiply sequence by non-int of type 'float'

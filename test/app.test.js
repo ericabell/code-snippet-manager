@@ -25,5 +25,17 @@ describe('Test GET requests to pages', () => {
       return request(app)
         .get('/')
         .expect(200)
+    });
+
+    test("/snip/language/javascript", function() {
+      return request(app)
+        .get('/snip/language/javascript')
+        .expect(200)
+    });
+
+    test("/snip/tag/front-end", function() {
+      return request(app)
+        .get('/snip/tag/front-end')
+        .expect(200)
     })
-})
+});
