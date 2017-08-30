@@ -93,7 +93,7 @@ router.post('/snip/create', function(req, res, next) {
   SnippetController.createNew(req.body.title,
                               req.body.language,
                               req.body.code,
-                              Utilitites.extractName(req),
+                              Utilities.extractName(req),
                               req.body.tags,
                               req.body.notes)
     .then( () => {

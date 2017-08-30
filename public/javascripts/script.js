@@ -21,3 +21,18 @@ snippets.forEach( (snippet) => {
     })
   );
 })
+
+
+let addTagButton = document.querySelector('#add-tag-button');
+
+addTagButton.addEventListener('click', (e) => {
+  console.log(`User clicked add tag`);
+  // append another text input to the group
+  let tagFormGroup = document.querySelector('#tag-form-group');
+  let newTextInputElement = document.createElement('input');
+  newTextInputElement.classList = 'form-control';
+  newTextInputElement.type = 'text';
+  newTextInputElement.name = 'tags';
+  tagFormGroup.appendChild(newTextInputElement);
+
+})
