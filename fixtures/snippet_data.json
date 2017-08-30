@@ -1,0 +1,140 @@
+{
+	"title": "XML snippet",
+	"language": "xml",
+	"code": "<!DOCTYPE html>\n<html>\n<head>\n  <link rel=\"stylesheet\" media=\"screen\" href=\"style.css\">\n  <title>JS</title>\n  <script type=\"text/javascript\"> </script>\n  <script src=\"http://code.jquery.com/jquery-latest.js\"></script>\n<style>\n\u200b   nav {\n     display:none;\n    }\n    .static {\n     display:block;\n    }\n</style>\n<script>\n  $(document).ready(function(){\n  \u200b  $(\".rightsquare\").click(function(){\n            console.log(\"you clicked on Braun-T31\");\n            $(\"nav\").addClass(\"static\");\n          });\n          $(\"li:Station1\").click(function(){\n            console.log(\"you clicked on the first list item!\");\n            alert(\"yay!\");\n          });\n          $(\"li:Station2\").click(function(){\n            console.log(\"you clicked on the last list item!\");\n          });\n  \u200b         $(\"span\").click(function(){\n            console.log(\"you clicked on the close button!\");\n            $(\"nav\").removeClass(\"static\");\n          });\n        });\n  </script>\n  <title> am i dieter rams ? </title>\n</head>\n<body>\n<div id=\"background\"> </div>\n<div class=\"sidebar\">\n  <div class=\"topfiller\"> </div>\n  <div class=\"title\">\n    <h1> am i dieter rams ? </h1>\n  </div>\n  <div class=\"bottomfiller\"> </div>\n</div>\n\n<div class=\"rightsquare\" id=\"grid\">\n<nav>\n    <h4> Braun-T31 </h4>\n    <img src=\"Braun.jpg\" id=\"Braun-T31\" style=\"width:300px;\"> </img>\n      <div class=\"static\" id=\"static\"></div>\n    <ul class=\"stations\"\n      <li class=\"Station1\"> </li>\n      <li class=\"Station2\"></li>\n      <li class=\"Station3\"></li>\n    </ul>\n  </nav>\n  <span> close nav </span>\n  </div>\n\n</div>\n\n</body>\n</html>\n",
+	"owner": "Anonymous User",
+	"created": {
+		"$date": "2017-08-29T21:51:03.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"back-end"
+	],
+	"notes": [
+		"these are some notes"
+	]
+}
+{
+	"title": "Javascript Snippet",
+	"language": "javascript",
+	"code": "Function.prototype.method = function(name, func) {\n    if(!this.prototype[name]) {\n        this.prototype[name] = func;\n    }\n    return this;\n};\n\nNumber.method('integer', function() {\n   return Math[this < 0 ? 'ceil' : 'floor'](this);\n});\n\ndocument.writeln((-10/3).integer());\n",
+	"owner": "Bob Jenkins",
+	"created": {
+		"$date": "2017-08-29T21:52:33.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"front-end"
+	],
+	"notes": [
+		"notes are fun"
+	]
+}
+{
+	"title": "Python Snippet",
+	"language": "python",
+	"code": "#!/usr/bin/python3\n\nhrs = input(\"Enter Hours:\")\nrate = input(\"Enter Rate:\")\n#Computing Overtime\nif float(hrs) > 40:\n  hrs_difference = float(hrs) - 40\n  #print(hrs_difference)\n  overtime_pay = float(hrs_difference *(rate * 1.5))\n  print(overtime_pay)\n  #total = str((float(hrs) * float(rate) + overtime_pay))\n  #print('Pay: ' , total)\nelse:\n  total = str(float(hrs) * float(rate))\n  print(\"Pay: \" ,total)\n\nError Message\nFile \"./total_hours.py\", line 9, in <module>\n    overtime_pay = float(hrs_difference *(rate * 1.5))\nTypeError: can't multiply sequence by non-int of type 'float'\n",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:51:00.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:55:29.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:57:18.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:58:27.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-30T00:01:12.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-30T00:04:32.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
