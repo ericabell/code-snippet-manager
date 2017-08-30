@@ -27,6 +27,7 @@ a {
 .sidebar-content {
   flex-basis: 20%;
   z-index: 5;
+  padding: 20px;
 }
 
 .main-content {
