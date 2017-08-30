@@ -110,13 +110,28 @@ function createNewSnippet(newTitle,
   return p;
 }
 
+function deleteById(id) {
+  let p = new Promise( (resolve, reject) => {
+    Snippet.deleteOne({_id: ObjectId(id)})
+      .then( (doc) => {
+        resolve(doc);
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
 let SnippetController = {
   getAll: getAllSnippets,
   createNew: createNewSnippet,
   getByTag: getByTag,
   getByLanguage: getByLanguage,
   getByUser: getByUser,
-  getById: getById
+  getById: getById,
+  deleteById: deleteById
 }
 
 module.exports = SnippetController;

@@ -109,7 +109,6 @@ router.get('/snip/view/:id', function(req,res,next) {
 
   SnippetController.getById(searchId)
     .then( (data) => {
-      console.log(data);
       res.render('index', {
         snippets: data,
         title: 'Code Snip Manager',
@@ -120,6 +119,19 @@ router.get('/snip/view/:id', function(req,res,next) {
     .catch( (err) => {
       res.render(err);
     })
+});
+
+router.get('/snip/delete/:id', function(req,res,next) {
+  let searchId = req.params.id;
+
+  SnippetController.deleteById(searchId)
+    .then( (data) => {
+      res.redirect('/');
+    })
+    .catch( (err) => {
+      res.render(err);
+    })
+
 })
 
 module.exports = router;
