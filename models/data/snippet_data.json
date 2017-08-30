@@ -1,0 +1,140 @@
+{
+	"title": "My great snippet",
+	"language": "javascript",
+	"code": "let a = 5;\r\n\r\nfunction myFunc(a,b) {\r\n   return a+b;\r\n}",
+	"owner": "Anonymous User",
+	"created": {
+		"$date": "2017-08-29T21:51:03.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"back-end"
+	],
+	"notes": [
+		"these are some notes"
+	]
+}
+{
+	"title": "Bob's Snippet",
+	"language": "javascript",
+	"code": "a = 5;",
+	"owner": "Bob Jenkins",
+	"created": {
+		"$date": "2017-08-29T21:52:33.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"front-end"
+	],
+	"notes": [
+		"notes are fun"
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:51:00.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:55:29.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:57:18.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:58:27.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-30T00:01:12.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-30T00:04:32.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
