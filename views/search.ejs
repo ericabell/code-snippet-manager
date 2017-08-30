@@ -1,0 +1,41 @@
+<% include ./partials/head %>
+<% include ./partials/header %>
+<% include ./partials/navbar %>
+
+<div class='code-snip-app'>
+
+  <div class='sidebar-content'>
+    <% include ./partials/sidebar %>
+  </div>
+
+  <div class='main-content'>
+    <h1>Search by Language</h1>
+      <div class="container">
+        <form id='login-form'  action="/search/language" method="post">
+          <div class="form-group">
+            <label for="languange">Language</label>
+            <input type="text" class="form-control" name="language" placeholder="">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+
+    <h1>Search by Tag</h1>
+    <div class="container">
+      <form id='login-form'  action="/search/tag" method="post">
+        <div class="form-group">
+          <label for="tag">Tag</label>
+          <input type="text" class="form-control" name="tag" placeholder="">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+<% include ./partials/footer %>
+<% include ./partials/foot %>

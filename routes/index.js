@@ -23,6 +23,15 @@ router.get('/', function(req, res, next) {
     })
 });
 
+router.get('/search', function(req, res, next) {
+  res.render('search', {
+    title: 'Code Snip Manager',
+    user: Utilities.extractName(req),
+    username: Utilities.extractUsername(req)
+  })
+})
+
+
 router.get('/snip/language/:language', function(req, res, next) {
   let searchLanguage = req.params.language;
   SnippetController.getByLanguage(searchLanguage)
