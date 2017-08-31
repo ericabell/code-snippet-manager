@@ -36,6 +36,15 @@
           <a href="/snip/edit/<%= snippets.snippets[i]['_id'] %>"><button type="button" class="btn btn-primary btn-sm">Edit Snip</button></a>
           <a href="/snip/delete/<%= snippets.snippets[i]['_id'] %>"><button type="button" class="btn btn-primary btn-sm">Delete Snip</button></a>
         <% } %>
+
+        <div class="rating" id="<%= snippets.snippets[i]['_id'] %>">
+          <span class="5">&#9734;</span>
+          <span class="4">&#9734;</span>
+          <span class="3">&#9734;</span>
+          <span class="2">&#9734;</span>
+          <span class="1">&#9734;</span>
+        </div>
+
       </div>
 
       <div class="card-body">

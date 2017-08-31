@@ -25,14 +25,72 @@ snippets.forEach( (snippet) => {
 
 let addTagButton = document.querySelector('#add-tag-button');
 
-addTagButton.addEventListener('click', (e) => {
-  console.log(`User clicked add tag`);
-  // append another text input to the group
-  let tagFormGroup = document.querySelector('#tag-form-group');
-  let newTextInputElement = document.createElement('input');
-  newTextInputElement.classList = 'form-control';
-  newTextInputElement.type = 'text';
-  newTextInputElement.name = 'tags';
-  tagFormGroup.appendChild(newTextInputElement);
+if( addTagButton ) {
+  addTagButton.addEventListener('click', (e) => {
+    console.log(`User clicked add tag`);
+    // append another text input to the group
+    let tagFormGroup = document.querySelector('#tag-form-group');
+    let newTextInputElement = document.createElement('input');
+    newTextInputElement.classList = 'form-control';
+    newTextInputElement.type = 'text';
+    newTextInputElement.name = 'tags';
+    tagFormGroup.appendChild(newTextInputElement);
+  })
+}
 
-})
+
+// the star ratings
+
+// each snippet has a div with class of rating and an id for the snippet
+// let snippetsStarRating = document.querySelectorAll('.rating');
+//
+// console.log(`Length of snippetsStarRating: ${snippetsStarRating.length}`);
+//
+// let el = snippetsStarRating[0];
+// let currentRating = 0;
+// let maxRating = 5;
+// let callback = function( rating ) { alert(rating);};
+//
+// rating(el, currentRating, maxRating, callback);
+
+// snippetsStarRating.forEach( (snippet) => {
+//   let el = snippet;
+//   let currentRating = 0;
+//   let maxRating = 5;
+//   let callback = function( rating ) {alert(rating);};
+//
+//   let myRating = rating(el, currentRating, maxRating, callback);
+// })
+
+// the star ratings with class
+
+// the div has class 'rating' and id corresponding to the snippet
+// each star has class="5", class="4", etc.
+
+let ratings = document.querySelectorAll('.rating');
+
+ratings.forEach( (rating) => {
+  rating.addEventListener( 'click', (e) => {
+    let snippetId = e.path[1].id;
+    let starNumber = e.path[0].classList[0];
+    addStarRatingToSnippet(starNumber, snippetId);
+  })
+});
+
+function addStarRatingToSnippet(starNumber, snippetId) {
+  console.log(`I want to assign ${starNumber} stars to ${snippetId}`);
+
+  fetch(`http://localhost:3000/rating/${snippetId}/${starNumber}`, {
+    method: 'GET',
+    credentials: 'include'
+  })
+    .then( () => {
+      console.log('Gotcha');
+    })
+    .catch( (err) => {
+      console.log(err);
+    })
+
+
+  return true;
+}

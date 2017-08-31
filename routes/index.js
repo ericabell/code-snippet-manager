@@ -29,8 +29,15 @@ router.get('/search', function(req, res, next) {
     user: Utilities.extractName(req),
     username: Utilities.extractUsername(req)
   })
+});
+
+router.get('/search/language/:language', function(req, res, next) {
+  res.redirect('/snip/lanuage/' + req.params.language);
 })
 
+router.get('/search/tag/:tag', function(req, res, next) {
+  res.redirect('/snip/tag/' + req.params.tag);
+})
 
 router.get('/snip/language/:language', function(req, res, next) {
   let searchLanguage = req.params.language;
@@ -132,6 +139,14 @@ router.get('/snip/delete/:id', function(req,res,next) {
       res.render(err);
     })
 
+});
+
+router.get('/rating/:id/:stars', function(req, res, next) {
+  console.log(req.user);
+
+  console.log(`Want to give ${req.params.id} a rating of ${req.params.stars} stars by user: ${Utilities.extractUsername(req)}`);
+
+  res.send('done');
 })
 
 module.exports = router;
