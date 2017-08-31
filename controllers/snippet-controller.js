@@ -1,6 +1,10 @@
 let Snippet = require('../models/snippet');
 let Utilities = require('./utilities');
 
+let Rating = require('../models/ratings.js');
+
+let RatingController = require('./rating-controller')
+
 let ObjectId = require('mongodb').ObjectId
 
 function getAllSnippets() {

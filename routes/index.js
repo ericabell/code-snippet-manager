@@ -13,6 +13,7 @@ let Utilities = require('./utilities');
 router.get('/', function(req, res, next) {
   SnippetController.getAll()
     .then( (data) => {
+      console.log(data);
       res.render('index', {
         snippets: data,
         title: 'Code Snip Manager',
@@ -143,13 +144,13 @@ router.get('/snip/delete/:id', function(req,res,next) {
 
 });
 
-router.get('/rating/average/:id', function(req, res, next) {
-  console.log('hit get route for average rating');
-  RatingController.getAverageRatingForSnippet(req.params.id)
-  .then( (data) => {
-    res.json({rating: data});
-  })
-})
+// router.get('/rating/average/:id', function(req, res, next) {
+//   console.log('hit get route for average rating');
+//   RatingController.getAverageRatingForSnippet(req.params.id)
+//   .then( (data) => {
+//     res.json({rating: data});
+//   })
+// })
 
 
 router.get('/rating/:id/:stars', function(req, res, next) {
@@ -159,11 +160,16 @@ router.get('/rating/:id/:stars', function(req, res, next) {
 
   RatingController.createNew( req.params.id, Utilities.extractUsername(req), req.params.stars)
   .then( (data) => {
-    res.send('success');
+    data.updateAverage()
+    .then( () => {
+      console.log('update average success!');
+    })
   })
   .catch( (err) => {
-    res.send('error');
+
   })
+
+  res.send('success');
 })
 
 

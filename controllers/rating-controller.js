@@ -33,8 +33,6 @@ function getAverageRatingForSnippet(id) {
     // find all the records with a matching snippet id
     Rating.find({snipId: ObjectId(id)})
       .then( (docs) => {
-        console.log(`docs found:`);
-        console.log(docs);
         numberOfRatings = docs.length;
         docs.forEach( (doc) => {
           total += doc.stars;

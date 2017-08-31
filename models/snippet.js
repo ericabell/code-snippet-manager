@@ -11,6 +11,7 @@ const snippetSchema = new mongoose.Schema({
   language: String,
   tags: [],
   stars: [],
+  averageRating: Number,
   created: Date,
   modified: Date
 }, {collection: 'snippets'});
