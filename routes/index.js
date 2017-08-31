@@ -143,6 +143,15 @@ router.get('/snip/delete/:id', function(req,res,next) {
 
 });
 
+router.get('/rating/average/:id', function(req, res, next) {
+  console.log('hit get route for average rating');
+  RatingController.getAverageRatingForSnippet(req.params.id)
+  .then( (data) => {
+    res.json({rating: data});
+  })
+})
+
+
 router.get('/rating/:id/:stars', function(req, res, next) {
   console.log(req.user);
 
@@ -156,5 +165,6 @@ router.get('/rating/:id/:stars', function(req, res, next) {
     res.send('error');
   })
 })
+
 
 module.exports = router;

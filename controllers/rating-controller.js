@@ -24,10 +24,36 @@ function createNewRating(id,username,stars) {
   return p;
 }
 
+function getAverageRatingForSnippet(id) {
+  console.log('In getAverageRatingForSnippet');
+  let p = new Promise( (resolve, reject) => {
+    let total = 0;
+    let numberOfRatings = 0;
+    let averageRating = null;
+    // find all the records with a matching snippet id
+    Rating.find({snipId: ObjectId(id)})
+      .then( (docs) => {
+        console.log(`docs found:`);
+        console.log(docs);
+        numberOfRatings = docs.length;
+        docs.forEach( (doc) => {
+          total += doc.stars;
+        })
+        averageRating = total / numberOfRatings;
+        resolve(averageRating);
+      })
+      .catch( () => {
+        reject('error in getting the average rating')
+      })
+  })
+  return p;
+}
+
 
 
 let RatingController = {
-  createNew: createNewRating
+  createNew: createNewRating,
+  getAverageRatingForSnippet: getAverageRatingForSnippet
 }
 
 module.exports = RatingController;

@@ -85,7 +85,17 @@ function addStarRatingToSnippet(starNumber, snippetId) {
     credentials: 'include'
   })
     .then( () => {
-      console.log('Gotcha');
+      // grab the new average rating so we can display it
+      fetch(`http://localhost:3000/rating/average/${snippetId}`, {
+        method: 'GET',
+        credentials: 'include'
+      })
+      .then( (response) => {
+        return response.json()
+      })
+      .then( (json) => {
+        console.log(json);
+      })
     })
     .catch( (err) => {
       console.log(err);
