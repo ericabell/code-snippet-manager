@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 let Snippet = require('../models/snippet.js');
+let Rating = require('../models/ratings.js')
 
 let SnippetController = require('../controllers/snippet-controller');
+let RatingController = require('../controllers/rating-controller');
 
 let Utilities = require('./utilities');
 
@@ -146,7 +148,13 @@ router.get('/rating/:id/:stars', function(req, res, next) {
 
   console.log(`Want to give ${req.params.id} a rating of ${req.params.stars} stars by user: ${Utilities.extractUsername(req)}`);
 
-  res.send('done');
+  RatingController.createNew( req.params.id, Utilities.extractUsername(req), req.params.stars)
+  .then( (data) => {
+    res.send('success');
+  })
+  .catch( (err) => {
+    res.send('error');
+  })
 })
 
 module.exports = router;

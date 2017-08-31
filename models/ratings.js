@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-ObjectId = require('mongodb').ObjectID;
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 mongoose.Promise = require('bluebird');
 
