@@ -17,3 +17,9 @@ with open('python-snippet.txt') as h:
 h.closed
 
 print(json.dumps({"code": read_data}))
+
+with open('c-snippet.txt') as j:
+    read_data = j.read()
+j.closed
+
+print(json.dumps({"code": read_data}))
