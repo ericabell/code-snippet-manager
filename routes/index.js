@@ -130,6 +130,39 @@ router.get('/snip/view/:id', function(req,res,next) {
     })
 });
 
+router.get('/snip/update/:id', function(req,res,next) {
+  let searchId = req.params.id;
+
+  SnippetController.getById(searchId)
+    .then( (data) => {
+      res.render('edit', {
+        snippets: data,
+        title: 'Code Snip Manager',
+        user: Utilities.extractName(req),
+        username: Utilities.extractUsername(req)
+      })
+    })
+    .catch( (err) => {
+      res.render(err);
+    })
+});
+
+router.post('/snip/update/:id', function(req, res, next) {
+  SnippetController.updateSnippetById(req.params.id,
+                              req.body.title,
+                              req.body.language,
+                              req.body.code,
+                              Utilities.extractUsername(req),
+                              req.body.tags,
+                              req.body.notes)
+    .then( () => {
+      res.redirect('/');
+    })
+    .catch( (err) => {
+      res.send(`Error updating snippet: ${err}`);
+    })
+})
+
 router.get('/snip/delete/:id', function(req,res,next) {
   let searchId = req.params.id;
 

@@ -114,6 +114,36 @@ function createNewSnippet(newTitle,
   return p;
 }
 
+function updateSnippetById(id,
+                          newTitle,
+                          newLanguage,
+                          newCode,
+                          newOwner,
+                          newTags,
+                          newNotes) {
+  let p = new Promise( (resolve, reject) => {
+
+    Snippet.findOneAndUpdate(
+        {'_id': id},
+      {title: newTitle,
+                    language: newLanguage,
+                    code: newCode,
+                    owner: newOwner,
+                    tags: newTags,
+                    notes: [newNotes],
+                    modified: Date()
+                  })
+        .then( (doc) => {
+          resolve(doc);
+        })
+        .catch( (err) => {
+          reject(err);
+        })
+  })
+
+  return p;
+}
+
 function deleteById(id) {
   let p = new Promise( (resolve, reject) => {
     Snippet.deleteOne({_id: ObjectId(id)})
@@ -131,6 +161,7 @@ function deleteById(id) {
 let SnippetController = {
   getAll: getAllSnippets,
   createNew: createNewSnippet,
+  updateSnippetById: updateSnippetById,
   getByTag: getByTag,
   getByLanguage: getByLanguage,
   getByUser: getByUser,

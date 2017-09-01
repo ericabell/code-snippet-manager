@@ -1,0 +1,53 @@
+<% include ./partials/head %>
+<% include ./partials/header %>
+<% include ./partials/navbar %>
+
+<div class='code-snip-app'>
+
+  <div class='sidebar-content'>
+    <% include ./partials/sidebar %>
+  </div>
+
+  <div class='main-content'>
+      <form action='/snip/update/<%= snippets.snippets[0].id %>' method='POST'>
+        <h1>Update Snippet</h1>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" name="title" value="<%= snippets.snippets[0].title %>">
+          </div>
+
+          <div class="form-group">
+            <label for="language">Language</label>
+            <select class="form-control" name="language">
+              <option value="javascript">Javascript</option>
+              <option value="python">Python</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <input class="form-control" type="text" name="notes" value="<%= snippets.snippets[0].notes %>">
+          </div>
+
+          <div id="tag-form-group" class="form-group">
+            <label for="tags">Tags</label>
+            <% snippets.snippets[0].tags.forEach( (tag) => { %>
+              <input class="form-control" type="text" name="tags" value="<%= tag %>" />
+            <% }) %>
+          </div>
+
+          <button id="add-tag-button" class="btn btn-primary" type="button">Add Tag</button>
+
+          <div class='editor'>
+            <textarea name='code' class='snippet' id="" rows="8" cols="40"><%= snippets.snippets[0].code %></textarea>
+          </div>
+
+        <input type="submit" class="btn btn-primary" value="Update"></input>
+      </form>
+
+  </div>
+
+</div>
+
+<% include ./partials/footer %>
+<% include ./partials/foot %>
