@@ -27,12 +27,12 @@
 
           <div class="col-6">
             <p class='flush-right snippet-created'>
-              <span class='small-italics'>Created: <%= snippets.snippets[i].created %></span>
+              <span class='small-italics'>Created: <%= snippets.snippets[i].created.toLocaleDateString() + ' @ ' + snippets.snippets[i].created.toLocaleTimeString() %></span>
             </p>
 
             <% if( snippets.snippets[i].modified ) { %>
               <p class='snippet-modified flush-right'>
-                <span class='small-italics'>Modified: <%= snippets.snippets[i].modified %></span>
+                <span class='small-italics'>Modified: <%= snippets.snippets[i].modified.toLocaleDateString() + ' @ ' + snippets.snippets[i].modified.toLocaleTimeString() %></span>
               </p>
               <% } %>
 
