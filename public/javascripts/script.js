@@ -5,8 +5,13 @@ let codeMirrorList = [];
 snippets.forEach( (snippet) => {
   // we may or may not have a predefined language...
   let modeName = snippet.classList[0] || '';
+
+  console.log(snippet.classList[1] === 'readOnly');
+  console.log(document.location.pathname.split('/')[2] === 'update');
+
   let cm_options = {
-    readOnly: false,
+    readOnly: snippet.classList[1] === 'readOnly' ||
+              !(document.location.pathname.split('/')[2] === 'update'),
     lineNumbers: true,
     mode: {name: modeName,}
   }

@@ -22,7 +22,7 @@
             <% if( snippets.snippets[i].owner === username ) { %>
               <a href="/snip/update/<%= snippets.snippets[i]['_id'] %>"><button type="button" class="btn btn-primary btn-sm">Edit Snip</button></a>
               <a href="/snip/delete/<%= snippets.snippets[i]['_id'] %>"><button type="button" class="btn btn-primary btn-sm">Delete Snip</button></a>
-              <% } %>
+            <% } %>
           </div>
 
           <div class="col-6">
@@ -56,14 +56,18 @@
                     <%= snippets.snippets[i].averageRating %>
                   </div>
                 <% } %>
-                  
+
           </div>
         </div>
       </div>
 
       <div class="card-body">
         <div class='editor'>
-          <textarea name='code' class='<%= snippets.snippets[i].language %> snippet' id="<%= snippets.snippets[i].id %>" rows="8" cols="40"><%= snippets.snippets[i].code %></textarea>
+          <% if( snippets.snippets[i].owner === username ) { %>
+            <textarea name='code' class='<%= snippets.snippets[i].language %> snippet' id="<%= snippets.snippets[i].id %>" rows="8" cols="40"><%= snippets.snippets[i].code %></textarea>
+          <% } else { %>
+            <textarea name='code' class='<%= snippets.snippets[i].language %> readOnly snippet' id="<%= snippets.snippets[i].id %>" rows="8" cols="40"><%= snippets.snippets[i].code %></textarea>
+          <% } %>
         </div>
       </div>
 
