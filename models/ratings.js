@@ -18,24 +18,17 @@ ratingSchema.methods.updateAverage = function() {
     // find all ratings that have this instance's snipId
     this.model('Rating').find({snipId: this.snipId})
     .then((docs) => {
-      console.log(`Found these in ratings collection:`);
-      console.log(docs);
       numberOfRatedSnippets = docs.length;
       docs.forEach( (doc) => {
         total += doc.stars;
       })
-      console.log(`Total: ${total}`);
-      console.log(`Number: ${numberOfRatedSnippets}`);
       let averageForThisSnippet = total/numberOfRatedSnippets;
-      console.log(`Average for this snippet: ${averageForThisSnippet}`);
       // now I need to update the snippet document
       Snippet.findOne({'_id': this.snipId}, (err, snippet) => {
-        console.log(`Snippet found: ${snippet}`);
-        snippet.averageRating = averageForThisSnippet;
+        snippet.averageRating = averageForThisSnippet.toFixed(1);
 
         snippet.save( (err) => {
           if(err) {
-            console.log('ERROR!');
             reject(err);
           } else {
             resolve();

@@ -13,7 +13,6 @@ let Utilities = require('./utilities');
 router.get('/', function(req, res, next) {
   SnippetController.getAll()
     .then( (data) => {
-      console.log(data);
       res.render('index', {
         snippets: data,
         title: 'Code Snip Manager',
@@ -144,29 +143,25 @@ router.get('/snip/delete/:id', function(req,res,next) {
 
 });
 
-// router.get('/rating/average/:id', function(req, res, next) {
-//   console.log('hit get route for average rating');
-//   RatingController.getAverageRatingForSnippet(req.params.id)
-//   .then( (data) => {
-//     res.json({rating: data});
-//   })
-// })
-
-
 router.get('/rating/:id/:stars', function(req, res, next) {
-  console.log(req.user);
-
-  console.log(`Want to give ${req.params.id} a rating of ${req.params.stars} stars by user: ${Utilities.extractUsername(req)}`);
-
-  RatingController.createNew( req.params.id, Utilities.extractUsername(req), req.params.stars)
+  // when a user clicks a star, this route is called
+  // we don't want them to wait, so create the new ratings
+  // document and then update the average in the snippet
+  // *BUT* res.send('success') doesn't wait for those db
+  // queries to finish.
+  RatingController.createNew(
+                              req.params.id,
+                              Utilities.extractUsername(req),
+                              req.params.stars
+                            )
   .then( (data) => {
     data.updateAverage()
     .then( () => {
-      console.log('update average success!');
+
     })
   })
   .catch( (err) => {
-
+    console.log(`Error updating snippet average rating: ${err}`);
   })
 
   res.send('success');
