@@ -51,9 +51,12 @@
                   <span class="1">&#9734;</span>
                 </div>
 
-                <div class="average-rating flush-right small-italics">Average User Rating:
-                  <%= snippets.snippets[i].averageRating %>
-                </div>
+                <% if( snippets.snippets[i].averageRating ) { %>
+                  <div class="average-rating flush-right small-italics">Average User Rating:
+                    <%= snippets.snippets[i].averageRating %>
+                  </div>
+                <% } %>
+                  
           </div>
         </div>
       </div>

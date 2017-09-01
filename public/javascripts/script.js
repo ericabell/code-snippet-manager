@@ -10,7 +10,7 @@ snippets.forEach( (snippet) => {
     lineNumbers: true,
     mode: {name: modeName,}
   }
-  console.log(cm_options);
+  // console.log(cm_options);
   codeMirrorList.push(new CodeMirror
     .fromTextArea(snippet, cm_options)
     .on('changes', (cmInstance, changes) => {
@@ -85,7 +85,7 @@ function addStarRatingToSnippet(starNumber, snippetId) {
     credentials: 'include'
   })
     .then( () => {
-      
+
     })
     .catch( (err) => {
       console.log(err);

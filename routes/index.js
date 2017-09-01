@@ -35,10 +35,10 @@ router.get('/search', function(req, res, next) {
 
 router.get('/search/language/:language', function(req, res, next) {
   res.redirect('/snip/lanuage/' + req.params.language);
-})
+});
 
-router.get('/search/tag/:tag', function(req, res, next) {
-  res.redirect('/snip/tag/' + req.params.tag);
+router.post('/search/language', function(req,res,next) {
+  res.redirect('/snip/language/' + req.body.language);
 })
 
 router.get('/snip/language/:language', function(req, res, next) {
@@ -56,6 +56,14 @@ router.get('/snip/language/:language', function(req, res, next) {
       res.render(err);
     })
 });
+
+router.get('/search/tag/:tag', function(req, res, next) {
+  res.redirect('/snip/tag/' + req.params.tag);
+});
+
+router.post('/search/tag', function(req,res,next) {
+  res.redirect('/snip/tag/' + req.body.tag);
+})
 
 router.get('/snip/tag/:tag', function(req, res, next) {
   let searchTag = req.params.tag;
