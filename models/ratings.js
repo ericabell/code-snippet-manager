@@ -31,7 +31,7 @@ ratingSchema.methods.updateAverage = function() {
           if(err) {
             reject(err);
           } else {
-            resolve();
+            resolve(snippet.averageRating);
           }
         })
       })

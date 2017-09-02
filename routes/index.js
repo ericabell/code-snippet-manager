@@ -197,15 +197,16 @@ router.get('/rating/:id/:stars', function(req, res, next) {
                             )
   .then( (data) => {
     data.updateAverage()
-    .then( () => {
-
+    .then( (newAverage) => {
+      console.log(`New average received from ratings instance method: ${newAverage}`);
+      // send the new average back to the client JS caller
+      res.json({newAverage: newAverage});
     })
   })
   .catch( (err) => {
     console.log(`Error updating snippet average rating: ${err}`);
+    res.send('error?');
   })
-
-  res.send('success');
 })
 
 

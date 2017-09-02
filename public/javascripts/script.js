@@ -74,11 +74,16 @@ function addStarRatingToSnippet(starNumber, snippetId) {
     method: 'GET',
     credentials: 'include'
   })
-    .then( () => {
+    .then( (response) => {
+      return response.json();
+    })
+    .then( (newAverageRating) => {
+      console.log(`Computed new average for snippet: ${newAverageRating.newAverage}`);
       // now we need to update THIS SNIPPET'S average rating text
-      let averageRatingDiv = document.querySelector('#' + snippetId + ' .average-rating span');
-      console.log(`Looking to update: ${averageRatingDiv}`);
-      averageRatingDiv.innerHTML = `500`;
+      let averageRatingSpan = document.querySelector('#' + snippetId + ' .average-rating span');
+      console.log(`Looking to update: ${averageRatingSpan}`);
+      // update the number
+      averageRatingSpan.innerHTML = newAverageRating.newAverage;
     })
     .catch( (err) => {
       console.log(err);
