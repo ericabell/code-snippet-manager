@@ -84,6 +84,10 @@ function addStarRatingToSnippet(starNumber, snippetId) {
       console.log(`Looking to update: ${averageRatingSpan}`);
       // update the number
       averageRatingSpan.innerHTML = newAverageRating.newAverage;
+
+      // this might be the first rating for the snippet. If so, we should remove the hidden class
+      // so that the user can see the average rating
+      averageRatingSpan.parentNode.classList.remove("hidden");
     })
     .catch( (err) => {
       console.log(err);

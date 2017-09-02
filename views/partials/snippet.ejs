@@ -56,6 +56,10 @@
                   <div class="average-rating flush-right small-italics">Average User Rating:
                     <span><%= snippets.snippets[i].averageRating %></span>
                   </div>
+                <% } else { %>
+                  <div class="average-rating flush-right small-italics hidden">Average User Rating:
+                    <span><%= snippets.snippets[i].averageRating %></span>
+                  </div>
                 <% } %>
 
           </div>

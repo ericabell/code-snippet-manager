@@ -86,3 +86,7 @@ textarea {
    content: "\2605";
    position: absolute;
 }
+
+.hidden {
+  display: none;
+}
