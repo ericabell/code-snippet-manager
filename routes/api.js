@@ -27,7 +27,7 @@ router.get('/snip/:id', function(req, res, next) {
 });
 
 // api route to modify an existing snip
-router.post('/snip/:id', req, res, next) {
+router.post('/snip/:id', function(req, res, next) {
 
 });
 

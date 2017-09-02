@@ -1,5 +1,10 @@
+
+// SET UP FOR CODEMIRROR ON ALL TEXT AREAS
+
+// .snippet is class on <textarea>
 let snippets = document.querySelectorAll('.snippet');
 
+// make a list of all the codemirror instances on the page
 let codeMirrorList = [];
 
 snippets.forEach( (snippet) => {
@@ -9,6 +14,8 @@ snippets.forEach( (snippet) => {
   console.log(snippet.classList[1] === 'readOnly');
   console.log(document.location.pathname.split('/')[2] === 'update');
 
+  // if we're not on the update page or the class is readOnly,
+  // set the options for codemirror approriately
   let cm_options = {
     readOnly: snippet.classList[1] === 'readOnly' ||
               !(document.location.pathname.split('/')[2] === 'update'),
@@ -27,7 +34,7 @@ snippets.forEach( (snippet) => {
   );
 })
 
-
+// set up th Add Tag button to add another text input for an additional tag
 let addTagButton = document.querySelector('#add-tag-button');
 
 if( addTagButton ) {
@@ -44,58 +51,38 @@ if( addTagButton ) {
 }
 
 
-// the star ratings
-
-// each snippet has a div with class of rating and an id for the snippet
-// let snippetsStarRating = document.querySelectorAll('.rating');
-//
-// console.log(`Length of snippetsStarRating: ${snippetsStarRating.length}`);
-//
-// let el = snippetsStarRating[0];
-// let currentRating = 0;
-// let maxRating = 5;
-// let callback = function( rating ) { alert(rating);};
-//
-// rating(el, currentRating, maxRating, callback);
-
-// snippetsStarRating.forEach( (snippet) => {
-//   let el = snippet;
-//   let currentRating = 0;
-//   let maxRating = 5;
-//   let callback = function( rating ) {alert(rating);};
-//
-//   let myRating = rating(el, currentRating, maxRating, callback);
-// })
-
-// the star ratings with class
-
-// the div has class 'rating' and id corresponding to the snippet
-// each star has class="5", class="4", etc.
-
+// for our star rating, set up the event listeners.
+// the .rating class is a div around the stars
 let ratings = document.querySelectorAll('.rating');
 
 ratings.forEach( (rating) => {
   rating.addEventListener( 'click', (e) => {
-    let snippetId = e.path[1].id;
+    // here's where we need to find the id for the stars
+    let snippetId = (e.path[6].id);
     let starNumber = e.path[0].classList[0];
     addStarRatingToSnippet(starNumber, snippetId);
   })
 });
 
+// send the star rating with the snippetId to the server
+// I send credentials along with this request to know who
+// the user is.
 function addStarRatingToSnippet(starNumber, snippetId) {
   console.log(`I want to assign ${starNumber} stars to ${snippetId}`);
 
-  fetch(`http://localhost:3000/rating/${snippetId}/${starNumber}`, {
+  fetch(`http://localhost:3000/rating/${snippetId.replace('snipId-','')}/${starNumber}`, {
     method: 'GET',
     credentials: 'include'
   })
     .then( () => {
-
+      // now we need to update THIS SNIPPET'S average rating text
+      let averageRatingDiv = document.querySelector('#' + snippetId + ' .average-rating span');
+      console.log(`Looking to update: ${averageRatingDiv}`);
+      averageRatingDiv.innerHTML = `500`;
     })
     .catch( (err) => {
       console.log(err);
     })
-
 
   return true;
 }
