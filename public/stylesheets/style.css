@@ -90,3 +90,8 @@ textarea {
 .hidden {
   display: none;
 }
+
+.register-form {
+  margin-top: 40px;
+  width: 60%;
+}
