@@ -39,7 +39,6 @@ router.get('/failure', (req, res) => {
 
 
 router.get('/logout', (req, res) => {
-  // TODO: logout passport
   req.logout();
   res.redirect('/');
 })
@@ -48,7 +47,7 @@ router.get('/register', (req, res) => {
   res.render('register', {title: 'Code Snip Manager'});
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res, next) => {
   User.create({username: req.body.username,
                password: req.body.password,
                name: req.body.name
@@ -57,8 +56,11 @@ router.post('/register', (req, res) => {
       if( err ) throw err;
       console.log(doc);
       console.log('user created successfully!');
+      next();
     });
-  res.redirect('/');
-})
+} , passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/failure',
+}));
 
 module.exports = router;
