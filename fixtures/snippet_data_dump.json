@@ -1,0 +1,244 @@
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda6959"
+	},
+	"title": "Javascript Snippet",
+	"language": "javascript",
+	"code": "Function.prototype.method = function(name, func) {\n    if(!this.prototype[name]) {\n        this.prototype[name] = func;\n    }\n    return this;\n};\n\nNumber.method('integer', function() {\n   return Math[this \u003c 0 ? 'ceil' : 'floor'](this);\n});\n\ndocument.writeln((-10/3).integer());\n",
+	"owner": "bjenkins",
+	"created": {
+		"$date": "2017-08-29T21:52:33.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"front-end"
+	],
+	"notes": [
+		"notes are fun"
+	],
+	"averageRating": 3.2
+}
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda695a"
+	},
+	"title": "XML snippet Part Deux",
+	"language": "javascript",
+	"code": "\u003c!DOCTYPE html\u003e\r\n\u003chtml\u003e\r\n\u003chead\u003e\r\n  \u003clink rel=\"stylesheet\" media=\"screen\" href=\"style.css\"\u003e\r\n  \u003ctitle\u003eJS\u003c/title\u003e\r\n  \u003cscript type=\"text/javascript\"\u003e \u003c/script\u003e\r\n  \u003cscript src=\"http://code.jquery.com/jquery-latest.js\"\u003e\u003c/script\u003e\r\n\u003cstyle\u003e\r\n​   nav {\r\n     display:none;\r\n    }\r\n    .static {\r\n     display:block;\r\n    }\r\n\u003c/style\u003e\r\n\u003cscript\u003e\r\n  $(document).ready(function(){\r\n  ​  $(\".rightsquare\").click(function(){\r\n            console.log(\"you clicked on Braun-T31\");\r\n            $(\"nav\").addClass(\"static\");\r\n          });\r\n          $(\"li:Station1\").click(function(){\r\n            console.log(\"you clicked on the first list item!\");\r\n            alert(\"yay!\");\r\n          });\r\n          $(\"li:Station2\").click(function(){\r\n            console.log(\"you clicked on the last list item!\");\r\n          });\r\n  ​         $(\"span\").click(function(){\r\n            console.log(\"you clicked on the close button!\");\r\n            $(\"nav\").removeClass(\"static\");\r\n          });\r\n        });\r\n  \u003c/script\u003e\r\n  \u003ctitle\u003e am i dieter rams ? \u003c/title\u003e\r\n\u003c/head\u003e\r\n\u003cbody\u003e\r\n\u003cdiv id=\"background\"\u003e \u003c/div\u003e\r\n\u003cdiv class=\"sidebar\"\u003e\r\n  \u003cdiv class=\"topfiller\"\u003e \u003c/div\u003e\r\n  \u003cdiv class=\"title\"\u003e\r\n    \u003ch1\u003e am i dieter rams ? \u003c/h1\u003e\r\n  \u003c/div\u003e\r\n  \u003cdiv class=\"bottomfiller\"\u003e \u003c/div\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv class=\"rightsquare\" id=\"grid\"\u003e\r\n\u003cnav\u003e\r\n    \u003ch4\u003e Braun-T31 \u003c/h4\u003e\r\n    \u003cimg src=\"Braun.jpg\" id=\"Braun-T31\" style=\"width:300px;\"\u003e \u003c/img\u003e\r\n      \u003cdiv class=\"static\" id=\"static\"\u003e\u003c/div\u003e\r\n    \u003cul class=\"stations\"\r\n      \u003cli class=\"Station1\"\u003e \u003c/li\u003e\r\n      \u003cli class=\"Station2\"\u003e\u003c/li\u003e\r\n      \u003cli class=\"Station3\"\u003e\u003c/li\u003e\r\n    \u003c/ul\u003e\r\n  \u003c/nav\u003e\r\n  \u003cspan\u003e close nav \u003c/span\u003e\r\n  \u003c/div\u003e\r\n\r\n\u003c/div\u003e\r\n\r\n\u003c/body\u003e\r\n\u003c/html\u003e\r\n",
+	"owner": "anonymous",
+	"created": {
+		"$date": "2017-08-29T21:51:03.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"back-end"
+	],
+	"notes": [
+		"these are some notes"
+	],
+	"averageRating": 3.2,
+	"modified": {
+		"$date": "2017-09-01T02:11:30.000Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda695b"
+	},
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-30T00:04:32.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	],
+	"averageRating": 3.5
+}
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda695c"
+	},
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:55:29.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	],
+	"averageRating": 5
+}
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda695d"
+	},
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:58:27.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	],
+	"averageRating": 3.3
+}
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda695e"
+	},
+	"title": "Python Snippet",
+	"language": "python",
+	"code": "#!/usr/bin/python3\n\nhrs = input(\"Enter Hours:\")\nrate = input(\"Enter Rate:\")\n#Computing Overtime\nif float(hrs) \u003e 40:\n  hrs_difference = float(hrs) - 40\n  #print(hrs_difference)\n  overtime_pay = float(hrs_difference *(rate * 1.5))\n  print(overtime_pay)\n  #total = str((float(hrs) * float(rate) + overtime_pay))\n  #print('Pay: ' , total)\nelse:\n  total = str(float(hrs) * float(rate))\n  print(\"Pay: \" ,total)\n\nError Message\nFile \"./total_hours.py\", line 9, in \u003cmodule\u003e\n    overtime_pay = float(hrs_difference *(rate * 1.5))\nTypeError: can't multiply sequence by non-int of type 'float'\n",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:51:00.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	],
+	"averageRating": 3.2
+}
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda695f"
+	},
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-30T00:01:12.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"_id": {
+		"$oid": "59a726f79be950d48fda6960"
+	},
+	"title": "title",
+	"language": "language",
+	"code": "code",
+	"owner": "owner",
+	"created": {
+		"$date": "2017-08-29T23:57:18.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tags"
+	],
+	"notes": [
+		[
+			"notes"
+		]
+	]
+}
+{
+	"_id": {
+		"$oid": "59a727e4ee90dbc35ce301fa"
+	},
+	"title": "My multiple-tagged snippet",
+	"language": "javascript",
+	"code": "This is my excellent code!",
+	"owner": "Anonymous User",
+	"created": {
+		"$date": "2017-08-30T21:02:28.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"tag1",
+		"tag2",
+		"tag3",
+		"tag4"
+	],
+	"notes": [
+		"these are some excellent notes!"
+	],
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59a728556be9dfc3da583cae"
+	},
+	"title": "test",
+	"language": "javascript",
+	"code": "Code goes here",
+	"owner": "anonymous",
+	"created": {
+		"$date": "2017-08-30T21:04:21.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"test",
+		"test3"
+	],
+	"notes": [
+		"test"
+	],
+	"__v": 0,
+	"averageRating": 1.8
+}
+{
+	"_id": {
+		"$oid": "59a8ccaff168383e9b382c84"
+	},
+	"title": "My editable snippet",
+	"language": "javascript",
+	"code": "This code will be editable!\r\n\r\nIt is definitely editable.",
+	"owner": "eabell",
+	"created": {
+		"$date": "2017-09-01T02:57:51.000Z"
+	},
+	"stars": [],
+	"tags": [
+		"python",
+		"help",
+		"cython"
+	],
+	"notes": [
+		"Even more awesome notes"
+	],
+	"__v": 0,
+	"modified": {
+		"$date": "2017-09-01T03:08:43.000Z"
+	},
+	"averageRating": 3
+}

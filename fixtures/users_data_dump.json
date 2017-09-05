@@ -1,0 +1,63 @@
+{
+	"_id": {
+		"$oid": "59a43bf8fcd5c95b9cd20279"
+	},
+	"username": "eabell",
+	"passwordHash": "$2a$08$rwXru5kq2hrYAmuS2zqZOeTLylxH6enUGIBVOUs68mArNjfEr/lmO",
+	"name": "Eric Abell",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59a5a1ef9382461f39a89f0a"
+	},
+	"username": "gil",
+	"passwordHash": "$2a$08$lPefVRze6W7454kpugnNguqRTnH4PN5WhVusZkWvHqTkpqIQySf5e",
+	"name": "Gil",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59a5e1fbc13a4b5238d048ab"
+	},
+	"username": "bjenkins",
+	"passwordHash": "$2a$08$A2NLy7Aau2f0NgHa7dgEyuwe9odsLKRmiiPWKarjXXev33NBJq21q",
+	"name": "Bob Jenkins",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59a729f16be9dfc3da583cb0"
+	},
+	"username": "eabell",
+	"passwordHash": "$2a$08$P9KfbvFGJQu1iN4lOb.s8OvJTW8.qAbhlIae9Z9uSIFNXxdfJHNH.",
+	"name": "Eric Abell",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59ad71ec57195007bfc07017"
+	},
+	"username": "duser",
+	"passwordHash": "$2a$08$cvYWsNKYWNfYhLNcwv29QOre1L9rKS9Mj0dCr6jZ6rU7qKQQwk8QG",
+	"name": "Dummy User",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59adf1f073b35711e37a8e8b"
+	},
+	"username": "hsolo",
+	"passwordHash": "$2a$08$QlvGliN55tSSvqOPp4ekU.Tu0PTNjhlDVWTduk7vhtK1uVHnBEdEq",
+	"name": "Han Solo",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "59adf235944f43122eb1fd34"
+	},
+	"username": "hsolo",
+	"passwordHash": "$2a$08$9IIIY5gcyOv/1BYojjdbMeaXWevgoOn/MZjONU92ctG6ykyCgWKve",
+	"name": "Han Solo",
+	"__v": 0
+}
