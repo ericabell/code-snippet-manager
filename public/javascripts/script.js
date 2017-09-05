@@ -76,7 +76,7 @@ function addStarRatingToSnippet(starNumber, snippetId) {
     displayUserRating.innerHTML = '';
   }, 5000);
 
-  fetch(`http://localhost:3000/rating/${snippetId.replace('snipId-','')}/${starNumber}`, {
+  fetch(`/rating/${snippetId.replace('snipId-','')}/${starNumber}`, {
     method: 'GET',
     credentials: 'include'
   })
