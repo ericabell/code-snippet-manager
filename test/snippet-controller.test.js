@@ -3,7 +3,11 @@ let request = require('supertest');
 const mongoose = require('mongoose');
 let SnippetController = require('../controllers/snippet-controller');
 
-let url='mongodb://localhost:27017/code-snippet-manager-project';
+let mLabUsername = process.env.MLABUSER;
+let mLabPassword = process.env.MLABPASSWORD;
+
+let url=`mongodb://${mLabUsername}:${mLabPassword}@ds123124.mlab.com:23124/code-snippet-manager-project`
+// let url='mongodb://localhost:27017/code-snippet-manager-project';
 mongoose.connect(url,
                  {useMongoClient: true},
                  (err)=> {

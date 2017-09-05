@@ -13,7 +13,12 @@ const express = require('express'),
 // app-level connect to snippet database
 // used for robot directory info and auth for passport
 const mongoose = require('mongoose');
-let url='mongodb://localhost:27017/code-snippet-manager-project';
+
+let mLabUsername = process.env.MLABUSER;
+let mLabPassword = process.env.MLABPASSWORD;
+
+let url=`mongodb://${mLabUsername}:${mLabPassword}@ds123124.mlab.com:23124/code-snippet-manager-project`
+// let url='mongodb://localhost:27017/code-snippet-manager-project';
 mongoose.connect(url,
                  {useMongoClient: true},
                  (err)=> {
@@ -78,7 +83,7 @@ passport.deserializeUser(function(id, done) {
 // this allows us to kill the server and still have session data available
 let store = new mongoDBStore(
   {
-    uri: 'mongodb://localhost:27017/code-snippet-manager-project',
+    uri: `mongodb://${mLabUsername}:${mLabPassword}@ds123124.mlab.com:23124/code-snippet-manager-project`,
     collection: 'session-store'
   }
 );
