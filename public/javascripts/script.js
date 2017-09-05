@@ -70,6 +70,12 @@ ratings.forEach( (rating) => {
 function addStarRatingToSnippet(starNumber, snippetId) {
   console.log(`I want to assign ${starNumber} stars to ${snippetId}`);
 
+  let displayUserRating = document.querySelector('#' + snippetId + ' .display-user-rating');
+  displayUserRating.innerHTML = `${starNumber} rating received!`;
+  setTimeout( ()=> {
+    displayUserRating.innerHTML = '';
+  }, 5000);
+
   fetch(`http://localhost:3000/rating/${snippetId.replace('snipId-','')}/${starNumber}`, {
     method: 'GET',
     credentials: 'include'

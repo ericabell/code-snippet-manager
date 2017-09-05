@@ -95,3 +95,7 @@ textarea {
   margin-top: 40px;
   width: 60%;
 }
+
+.red {
+  color: rgb(246, 59, 59);
+}
